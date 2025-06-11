@@ -1,0 +1,61 @@
+@media screen and (max-width: 1025px){
+   .pricing-itemSpan-two{display: inline;}
+   .pricing-itemSpan-one{display: none;}
+   .pricing-item{padding: 52px 20px 48px 20px;}
+}
+@media screen and (max-width: 890px){
+   .main-block{flex-wrap: wrap;justify-content: center;}
+   .main-block_aboutUs{flex-direction: column-reverse;}
+   .visaForm-img_aboutUs{margin: 40px 0 0 0;}
+   .navItem:not(:last-child){margin: 0 20px 0 0;}
+   .pricing-allText{text-align: start;justify-content: start;}
+   .textBr{display: none;}
+   .pricing-items{flex-direction: column;align-items: center;}
+   .pricing-item:not(:last-child){margin: 0 0 20px 0;}
+   .aboutUs,.howItWorks,.pricing,.footer{margin: 100px 0 0 0;}
+   .howItWorks-textList{margin: 50px 0 0 0;}
+   .howItWorks-textH{line-height: 120%;}
+   .footer_container{flex-direction: column;}
+   .footerSocialNetwork{margin: 0 0 30px 0;}
+}
+@media screen and (max-width: 486px){
+   .header_container{min-height: 52px;
+      padding: 20px;
+      backdrop-filter: none;
+      background-color: #fffffff3;
+      left: 0;
+      transform: none;
+   }
+   .howItWorks-textHText{margin: 0 0 0 16px;}
+   .header-navBut{
+      position: fixed;
+      top: -200%;
+      left: 0;
+      z-index: 5;
+      width: 100%;
+      padding: 138px 20px 28px 20px;
+      background-color: #F0F0F0;
+      transition: .4s all;
+      overflow-y: auto;
+      flex-direction: column;
+      height: 100%;
+   }
+   .active.header-navBut{top: 0;}
+   .header-buttons{flex: 0 1 auto;text-align: center;margin: 40px 0 0 0;}
+   .visaForm{margin: 0;}
+   .visaForm-allText{padding: 0 0 16px 0;}
+   .navList{flex-direction: column;text-align: center;}
+   .navList a{font-size: 1.5rem;}
+   .header-nav{margin: 0 0 40px 0;}
+   .navItem:not(:last-child){margin: 0 0 20px 0;}
+   .header-button_black{margin: 0;}
+   .howItWorks-textImg{padding: 0;}
+   .howItWorks-textH{font-size: 1.25rem;font-family: 'NeueMachina-UltraBold';}
+   .header-burger{display: flex;z-index: 10;}
+   .headingText{font-size: 1.75rem;letter-spacing: -1.4px;}
+   .input-button{margin: 20px 0 0 0;border: 1px solid #151515;}
+   .input-button__footer{border: 1px solid #fff;}
+   .visaForm-compane > img:not(:last-child){margin: 0 5px 0 0;}
+   .footer-form{flex-wrap: wrap;}
+   .footerNav{flex-direction: column;row-gap: 50px;}
+}

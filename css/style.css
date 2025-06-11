@@ -1,0 +1,687 @@
+/*ОБНУЛЕНИЕ*/
+@font-face {
+   font-family: 'NeueMachina-Regular';
+   src: local('Neue Machina Regular'), local('Neue-Machina-Regular'),
+       url('../fonts/NeueMachina-Regular.woff2') format('woff2'),
+       url('../fonts/NeueMachina-Regular.woff') format('woff'),
+       url('../fonts/NeueMachina-Regular.ttf') format('truetype');
+   font-weight: 400;
+   font-style: normal;
+}
+ @font-face {
+   font-family: 'NeueMachina-UltraBold';
+   src: local('Neue Machina Ultra bold'), local('Neue-Machina-Ultra-bold'),
+       url('../fonts/NeueMachina-Ultrabold.woff2') format('woff2'),
+       url('../fonts/NeueMachina-Ultrabold.woff') format('woff'),
+       url('../fonts/NeueMachina-Ultrabold.ttf') format('truetype');
+   font-weight: 800;
+   font-style: normal;
+}
+*,
+*::before,
+*::after{
+   padding: 0;
+   margin: 0;
+   border: 0;
+   box-sizing: border-box;
+}
+a{
+   text-decoration: none;
+}
+ul,
+ol,
+li{
+   list-style: none;
+}
+img{
+   vertical-align: top;
+   width: 100%;
+}
+h1,
+h2
+h3,
+h4,
+h5,
+h6{
+   font-weight: inherit;
+   font-size: inherit;
+}
+html,
+body{
+   height: 100%;
+   line-height: 1;
+   font-size: 16px;
+	color: #151515;
+   font-family: sans-serif;
+	background: #F0F0F0;
+}
+.wrapper{
+   min-height: 100%;
+   overflow: hidden;
+   flex-direction: column;
+   display: flex;
+   padding: 0 20px;
+}
+[class*="_container"]{
+   max-width: 2280px;
+   margin: 0 auto;
+	transition: 0.3s all ease-in;
+}
+main{
+   flex: 1 1 auto;
+}
+.lazy-loading{
+   opacity: 0;
+	transform: translate(0, 20px);
+}
+.scrollActive.hoverLine::after{
+   left: 0;
+   opacity: 1;
+}
+.scrollActive.hoverLine{
+   text-shadow: 0 0 0 #151515;
+}
+::-webkit-scrollbar{
+   width: 10px;
+}
+::-webkit-scrollbar-track{
+   background-color: rgb(211, 211, 211);
+}
+::-webkit-scrollbar-thumb{
+   background-color: rgb(131, 131, 131);
+   border-radius: 5px;
+   border: 2px solid rgb(211, 211, 211);
+}
+::-webkit-scrollbar-thumb:hover{
+   background-color: rgb(83, 83, 83);
+}
+*::selection{
+	color: #fff;
+	background-color: rgb(95, 95, 95);
+}
+/*-----------------------------------ШАПКА САЙТА--------------------------------------------------*/
+.header{
+   padding: 124px 0 0 0;
+}
+.header_container{
+   display: flex;
+   align-items: center;
+   min-height: 124px;
+   position: fixed;
+   background-color: #ffffffc9;
+   backdrop-filter: blur(5px);
+   width: 100%;
+   padding: 0 20px;
+   top: 0;
+   left: 50%;
+   transform: translate(-50%,0);
+   z-index: 10;
+}
+.header-block{
+   display: flex;
+   align-items: center;
+   width: 100%;
+   justify-content: space-between;
+}
+.header-logo{
+   width: 52px;
+   height: 52px;
+   margin: 0 30px 0 0;
+   position: relative;
+   z-index: 10;
+}
+.header-logo > img{
+   width: auto;
+}
+.header-navBut{
+   display: flex;
+   align-items: center;
+   width: 100%;
+}
+.navList{
+   display: flex;
+   flex-wrap: wrap;
+}
+.navItem{
+   font-family: 'NeueMachina-Regular';
+   font-size: 1.125rem;
+   line-height: 144%;
+}
+.navItem > a {
+   color: #151515;
+}
+.navItem:not(:last-child){
+   margin: 0 40px 0 0;
+}
+.header-buttons{
+   flex: 1 1 auto;
+   text-align: end;
+}
+.header-button{
+   background-color: inherit;
+   color: #151515;
+   min-width: 145px;
+}
+.header-button_black{
+   background-color: #151515;
+   color: #fff;
+   margin: 0 0 0 20px;
+}
+.button{
+   font-family: 'NeueMachina-Regular';
+   font-size: 1.125rem;;
+   line-height: 144%;
+   padding: 14px 36px;
+   transition: .3s all;
+   cursor: pointer;
+}
+.button:hover{
+   background-color: inherit;
+   color: #151515;
+}
+.hoverLine{
+   position: relative;
+   transition: .2s all;
+}
+.hoverLine:hover{
+   text-shadow: 0 0 0 #151515;
+}
+.hoverLine::after{
+   position: absolute;
+   content: '';
+   width: 100%;
+   height: 2px;
+   background-color: #151515;
+   bottom: -1px;
+   left: -30%;
+   opacity: 0;
+   transition: .2s all;
+}
+.header-burger{
+   width: 52px;
+   height: 52px;
+   cursor: pointer;
+   display: none;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+.active.header-burger > .header-burgerLine:first-child{
+   transform: rotate(45deg);
+   top: 4px;
+}
+.active.header-burger > .header-burgerLine:last-child{
+   transform: rotate(-45deg);
+   bottom: 4px;
+}
+.header-burgerLine{
+   width: 28px;
+   height: 2px;
+   background-color: #151515;
+   position: relative;
+   transition: .3s all;
+}
+.header-burgerLine:first-child{
+   top: -3px;
+}
+.header-burgerLine:last-child{
+   top: 3px;
+}
+.lock{
+   overflow: hidden;
+}
+/*-----------------------------------СЕКЦИЯ №1--------------------------------------------------*/
+.visaForm{
+   margin: 44px 0 0 0;
+}
+.main-block{
+   max-width: 1512px;
+   width: 100%;
+   margin: 0 auto;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.visaForm-allText{
+   padding: 40px 0 16px 0;
+}
+.visaForm-hText{
+   margin: 0 0 20px 0;
+}
+.headingText{
+   font-family: 'NeueMachina-Regular';
+   font-size: 4.375rem;
+   line-height: 114%;
+   letter-spacing: -4px;
+   max-width: 721px;
+}
+.visaForm-text{
+   margin: 0 0 40px 0;
+}
+.blockText{
+   font-family: 'NeueMachina-Regular';
+   font-size: 1.125rem;
+   line-height: 144%;
+   max-width: 565px;
+}
+.visaForm-form{
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+}
+.input-email{
+   max-width: 280px;
+   width: 100%;
+   font-family: 'NeueMachina-Regular';
+   font-size: 1.125rem;
+   line-height: 144%;
+   border: 1px solid #151515;
+   background: #FFFFFF;
+   padding: 13px 20px;
+   transition: .3s all;
+}
+.input-email::placeholder{
+   color: #151515;
+}
+.input-email::-webkit-input-placeholder{
+   opacity: 1; 
+   transition: .3s all;
+}
+.input-email:focus::-webkit-input-placeholder{
+   opacity: 0; 
+}
+.input-email:focus,
+.input-email:hover{
+   outline: none;
+}
+.input-button{
+   font-family: 'NeueMachina-Regular';
+   font-size: 1.125rem;
+   line-height: 114%;
+   line-height: 144%;
+   padding: 13px 46.5px;
+   background-color: #151515;
+   color: #FFFFFF;
+   cursor: pointer;
+   transition: .3s all;
+   border: 1px solid #151515;
+   border-left: none;
+}
+.input-button:hover{
+   background-color: #fff;
+   color: #151515;
+}
+.visaForm-compane{
+   margin: 80px 0 0 0;
+   max-width: 330px;
+   display: flex;
+}
+.visaForm-compane > img:not(:last-child){
+   margin: 0 32px 0 0;
+}
+/*-----------------------------------СЕКЦИЯ №2--------------------------------------------------*/
+.aboutUs{
+   margin: 180px 0 0 0;
+}
+.aboutUs-allText{
+   max-width: 750px;
+   width: 100%;
+}
+.scrollBlock{
+   display: inline-block;
+   padding: 6px 16px;
+   font-family: 'NeueMachina-UltraBold';
+   font-size: 0.875rem;
+   line-height: 186%;
+   text-align: center;
+   text-transform: uppercase;
+   border: 2px solid #151515;
+   margin: 0 0 20px 0;
+}
+.headingText_aboutUs{
+   letter-spacing: -3px;
+   font-size: 3.75rem;
+   max-width: 750px;
+   line-height: 96.6%;
+}
+.blockText_aboutUs{
+   max-width: 750px;
+   margin: 44px 0 0 0;
+}
+.aboutUs-items{
+   margin: 34px 0 0 0;
+}
+.list-item{
+   font-family: 'NeueMachina-Regular';
+   font-size: 1.25rem;
+   line-height: 140%;
+   position: relative;
+   padding: 0 0 0 29px;
+}
+.list-item:not(:last-child){
+   margin: 0 0 24px 0;
+}
+.list-item::before{
+   position: absolute;
+   content: url(../img/svg/Rectangle.svg);
+   top: 0;
+   left: 0;
+}
+/*-----------------------------------СЕКЦИЯ №3--------------------------------------------------*/
+.howItWorks{
+   margin: 200px 0 0 0;
+}
+.howItWorks-textList{
+   margin: 104px 0 0 0;
+}
+.howItWorks-textBlock{
+   display: flex;
+}
+.howItWorks-textBlock:not(:last-child){
+   margin: 0 0 48px 0;
+}
+.howItWorks-textImg{
+   width: 75px;
+   padding: 12px 0 0 0;
+}
+.howItWorks-textHText{
+   margin: 0 0 0 40px;
+}
+.howItWorks-textH{
+   font-family: 'NeueMachina-Regular';
+   font-size: 1.75rem;
+   line-height: 96.2%;
+   letter-spacing: -1.4px;
+   margin: 0 0 17px 0;
+   font-weight: 400;
+}
+.howItWorks-text{
+   max-width: 499px;
+   font-family: 'NeueMachina-Regular';
+   font-size: 1.125rem;
+   line-height: 144%;
+}
+/*-----------------------------------СЕКЦИЯ №4--------------------------------------------------*/
+.pricing{
+   margin: 200px 0 0 0;
+}
+.main-block__columnPricing{
+   flex-direction: column;
+}
+.pricing-block{
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.pricing-allText{
+   text-align: end;
+   max-width: 739px;
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: end;
+}
+.blockText_pricing{
+   margin: 44px 0 0 0;
+   max-width: 496px;
+}
+.pricing-items{
+   width: 100%;
+   display: flex;
+   margin: 60px 0 0 0;
+}
+.pricing-item{
+   max-width: 436px;
+   width: 100%;
+   min-height: 644px;
+   padding: 52px 40px 48px 40px;
+   border: 1px solid #151515;
+   display: flex;
+   flex-direction: column;
+}
+.pricing-item:not(:last-child){
+   margin: 0 6.747% 0 0;
+}
+.pricing-item__color{
+   background-color: #151515;
+   color: #fff;
+}
+.pricing-itemH{
+   font-family: 'NeueMachina-UltraBold';
+   font-size: 1.25rem;
+   line-height: 140%;
+   display: inline-block;
+   margin: 0 0 32px 0;
+}
+.pricing-itemSpan{
+   font-size: 5rem;
+   line-height: 96.25%;
+   position: relative;
+   top: -10px;
+}
+.pricing-itemSpan::before{
+   position: absolute;
+   content: attr(data-text);
+   font-family: 'NeueMachina-UltraBold';
+   font-size: 1.25rem;
+   line-height: 140%;
+   top: 21px;
+   left: -15px;
+}
+.pricing-itemH__spanColor > .pricing-itemSpan::before{
+   color: #fff;
+}
+.pricing-itemSpan-two{
+   display: none;
+}
+.pricing-itemText{
+   font-family: 'NeueMachina-Regular';
+   font-size: 1.25rem;
+   line-height: 140%;
+   margin: 0 0 61px 0;
+}
+.pricing-itemList-item{
+   font-size: 1.125rem;
+}
+.pricing-itemList-item__color::before{
+   content: url(../img/svg/RectangleBlack.svg);
+}
+.pricing-buttonMain{
+   flex: 1 1 auto;
+   display: flex;
+   align-items: end;
+   margin: 61px 0 0 0;
+}
+.pricing-button{
+   width: 100%;
+   background-color: #151515;
+   color: #fff;
+}
+.button__pricingBlack{
+   border: 1px solid #151515;
+}
+.pricing-button__color{
+   background-color: #fff;
+   color: #151515;
+   border: 1px solid #fff;
+}
+.pricing-button__color:hover{
+   background-color: #151515;
+   color: #fff;
+}
+/*-----------------------------------СЕКЦИЯ №5--------------------------------------------------*/
+.faqs{
+   margin: 100px 0 0 0;
+}
+.main-block__faqs{
+   align-items: start;
+}
+.faqs-hText{
+   margin: 0 0 32px 0;
+}
+.faqs-text{
+   max-width: 532px;
+}
+.faqs-img{
+   margin: 36px 0 0 0;
+}
+.accordion{
+   margin: 60px 0 0 0;
+   max-width: 840px;
+   width: 100%;
+}
+.accordion_item{
+   overflow: hidden;
+   position: relative;
+}
+.accordion_item:not(:last-child)::after{
+   position: absolute;
+   content: '';
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 1px;
+   background-color: #151515;
+}
+.accordion_itemH{
+   font-family: 'NeueMachina-UltraBold';  
+   font-size: 1.25rem;
+   line-height: 140%;
+   margin: 0 0 20px 0;
+   position: relative;
+   user-select: none;
+   cursor: pointer;
+   padding: 0 25px 0 0;
+}
+.accordion_itemH:not(:last-child){
+   margin: 20px 0 20px 0;
+}
+.accordion_itemH::after,
+.accordion_itemH::before{
+   position: absolute;
+   content: '';
+   background-color: #151515;
+   width: 16px;
+   height: 2px;
+   top: 50%;
+   transform: translate(0,-50%);
+   right: 0;
+   transition: .3s transform, .2s opacity;
+}
+.accordion_itemH::before{
+   opacity: 0;
+}
+.accordion_itemH__active.accordion_itemH::before{
+   transform: rotate(90deg);
+   opacity: 1;
+}
+.accordion_itemText{
+   max-width: 764px;
+   font-size: 1.125rem;
+   letter-spacing: 1px;
+   line-height: 144%;
+   transition: .3s all;
+}
+/*-----------------------------------FOOTER--------------------------------------------------*/
+.footer{
+   margin: 200px 0 0 0;
+   background: #151515;
+   overflow: hidden;
+   padding: 40px 20px 54px 20px;
+}
+.footer_container{
+   display: flex;
+   justify-content: space-between;
+}
+.footerSocialNetwork{
+   max-width: 456px;
+   width: 100%;
+}
+.footer-logo{
+   width: 52px;
+   height: 52px;
+   margin: 0 0 60px 0;
+}
+.footerSocialNetwork-block{
+   display: flex;
+   max-width: 380px;
+   width: 100%;
+   margin: 0 0 40px 0;
+}
+.footerSocialNetwork-blockImg{
+   width: 60px;
+   height: 60px;
+   border: 1px dashed #cacaca62;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.footerSocialNetwork-blockImg:not(:last-child){
+   margin: 0 20px 0 0;
+}
+.footerSocialNetwork-blockImg img{
+   width: auto;
+}
+.footerSocialNetwork-text{
+   max-width: 320px;
+   margin: 0 0 40px 0;
+}
+.footerContainer-text{
+   font-family: 'NeueMachina-UltraBold';
+   font-size: 1.25rem;
+   line-height: 140%;
+   color: #FFFFFF;
+}
+.footer-form{
+   flex-wrap: nowrap;
+   margin: 0 0 80px 0;
+}
+.input-email__footer{
+   background-color: #151515;
+   color: #fff;
+   border: 1px solid #fff;
+}
+.input-email__footer::placeholder{
+   color: #fff;
+}
+.input-button__footer{
+   background-color: #fff;
+   color: #151515;
+   border: 1px solid #fff;
+   border-left: none;
+}
+.input-button__footer:hover{
+   background-color: #151515;
+   color: #fff;
+}
+.footerContainer-end{
+   font-family: 'NeueMachina-Regular';
+   font-size: 1.125rem;
+   line-height: 144%;
+   color: #FFFFFF;
+}
+.footerNav{
+   max-width: 745px;
+   width: 100%;
+   display: flex;
+}
+.footerNav-item{
+   flex: 0 1 33.333%;
+}
+.footerNav-item:not(:last-child){
+   margin: 0 15px 0 0;
+}
+.footerNav-itemH{
+   margin: 0 0 14px 0;
+}
+.footerNav-listItem:not(:last-child){
+   margin: 0 0 14px 0;
+}
+.footerNav-listItem-link{
+   color: #fff;
+   transition: .3s all;
+}
+.footerNav-listItem-link:hover{
+   color: #b1b1b1;
+}
